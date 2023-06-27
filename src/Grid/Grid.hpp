@@ -22,4 +22,13 @@ class Grid
         Grid(int rows, int cols, int mines);
         void PrintDimensions();
         void PrintData();
+
+        int GetRows();
+        void SetRows(int rows);
+        int GetColumns();
+        void SetColumns(int cols);
+        int GetMineCount();
+
+    private:
+        void SetParameters(int rows, int cols, int mines);
 };
