@@ -24,12 +24,18 @@
     <ClInclude Include="Difficulty.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Matrix.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Grid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GridFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

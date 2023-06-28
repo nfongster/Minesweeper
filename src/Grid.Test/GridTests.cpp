@@ -1,7 +1,9 @@
 #include "pch.h"
+#include <exception>
 #include "../Grid/Grid.hpp"
 #include "../Grid/GridFactory.hpp"
 #include "../Grid/Difficulty.hpp"
+#include "../Grid/Matrix.hpp"
 
 TEST(GridTests, TestConstructor) 
 {
@@ -35,4 +37,14 @@ TEST(GridTests, TestGridFactory)
 	EXPECT_EQ(expertGrid.GetRows(), 16);
 	EXPECT_EQ(expertGrid.GetColumns(), 30);
 	EXPECT_EQ(expertGrid.GetMineCount(), 99);
+}
+
+TEST(MatrixTests, TestMatrixAssignment)
+{
+	Matrix m = Matrix(5, 5);
+	EXPECT_EQ(m[0][0], 0);
+
+	int testValue = 42;
+	m.SetValue(3, 3, testValue);
+	EXPECT_EQ(m[3][3], testValue);
 }

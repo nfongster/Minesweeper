@@ -1,6 +1,8 @@
 #include "Grid.hpp"
+#include <exception>
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <vector>
 #include <cstdlib>  // random number generation
 
@@ -13,21 +15,37 @@ Grid::Grid(int rows, int cols)
 
 Grid::Grid(int rows, int cols, int mines)
 {
-    // if mines > rows * cols, throw exception
+    if (mines <= 0)
+    {
+        stringstream exceptionMessage;
+        exceptionMessage << "Number of mines was not positive, was " << mines << ".";
+        throw invalid_argument(exceptionMessage.str());
+    }
+    if (mines > rows * cols)
+    {
+        stringstream exceptionMessage;
+        exceptionMessage << "Number of mines (" << mines << ") exceeded the total number of elements (" << rows * cols << ").";
+        throw invalid_argument(exceptionMessage.str());
+    }
     SetParameters(rows, cols, mines);
 }
 
 void Grid::SetParameters(int rows, int cols, int mines)
 {
+    if (rows <= 0 || cols <= 0)
+    {
+        stringstream exceptionMessage;
+        exceptionMessage << "Rows and columns must be positive, was given (" << rows << ", " << cols << ").";
+        throw invalid_argument(exceptionMessage.str());
+    }
     Rows = rows;
     Columns = cols;
-    Elements = Rows * Columns;
     NumMines = mines;
     for (int i = 0; i < Rows * Columns; i++)
     {
         Minefield.push_back(rand() % 2 == 0 ? 1 : 0);
+        // Instead, push a random number of mines into the minefield given a seed
     }
-    // Randomly generate a given number of mines based on nrows * ncols (come up w/ default way of doing so)
 }
 
 void Grid::PrintDimensions()

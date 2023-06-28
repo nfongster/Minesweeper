@@ -133,10 +133,12 @@
     <ClInclude Include="Difficulty.hpp" />
     <ClInclude Include="Grid.hpp" />
     <ClInclude Include="GridFactory.hpp" />
+    <ClInclude Include="Matrix.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="GridFactory.cpp" />
+    <ClCompile Include="Matrix.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
